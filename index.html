@@ -156,6 +156,292 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-centos安装cuda" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/01/centos安装cuda/">centos安装cuda</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/01/centos安装cuda/" class="archive-article-date">
+  	<time datetime="2019-10-01T10:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-Perform-the-pre-installation-actions"><a href="#一-Perform-the-pre-installation-actions" class="headerlink" title="一.Perform the pre-installation actions."></a>一.Perform the pre-installation actions.</h1><h3 id="1-确定你有cuda可驱动的GPU"><a href="#1-确定你有cuda可驱动的GPU" class="headerlink" title="1.确定你有cuda可驱动的GPU"></a>1.确定你有cuda可驱动的GPU</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lspci | grep -i nvidia</span><br></pre></td></tr></table></figure>
+
+<p>我的是英伟达特斯拉P4显卡</p>
+<p>00:06.0 3D controller: <strong>NVIDIA</strong> Corporation GP104GL [Tesla P4] (rev a1）</p>
+<p>英伟达显卡可以在<a href>https://developer.nvidia.com/cuda-gpus</a>看到CUDA支持的显卡类型有哪些</p>
+<p>我的特斯拉P4显卡计算能力是6.1，最好的是特斯拉T4，计算能力是7.5。</p>
+<h3 id="2-确定你的LINUX系统是不是支持cuda"><a href="#2-确定你的LINUX系统是不是支持cuda" class="headerlink" title="2.确定你的LINUX系统是不是支持cuda"></a>2.确定你的LINUX系统是不是支持cuda</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -m &amp;&amp; cat /etc/*release</span><br></pre></td></tr></table></figure>
+
+<p>我的信息是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">x86_64</span><br><span class="line"></span><br><span class="line">CentOS Linux release 7.5.1804 (Core) </span><br><span class="line"></span><br><span class="line">NAME=&quot;CentOS Linux&quot;</span><br><span class="line"></span><br><span class="line">VERSION=&quot;7 (Core)&quot;</span><br><span class="line"></span><br><span class="line">ID=&quot;centos&quot;</span><br><span class="line"></span><br><span class="line">ID_LIKE=&quot;rhel fedora&quot;</span><br><span class="line"></span><br><span class="line">VERSION_ID=&quot;7&quot;</span><br><span class="line"></span><br><span class="line">PRETTY_NAME=&quot;CentOS Linux 7 (Core)&quot;</span><br><span class="line"></span><br><span class="line">ANSI_COLOR=&quot;0;31&quot;</span><br><span class="line"></span><br><span class="line">CPE_NAME=&quot;cpe:/o:centos:centos:7&quot;</span><br><span class="line"></span><br><span class="line">HOME_URL=&quot;https://www.centos.org/&quot;</span><br><span class="line"></span><br><span class="line">BUG_REPORT_URL=&quot;https://bugs.centos.org/&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CENTOS_MANTISBT_PROJECT=&quot;CentOS-7&quot;</span><br><span class="line"></span><br><span class="line">CENTOS_MANTISBT_PROJECT_VERSION=&quot;7&quot;</span><br><span class="line"></span><br><span class="line">REDHAT_SUPPORT_PRODUCT=&quot;centos&quot;</span><br><span class="line"></span><br><span class="line">REDHAT_SUPPORT_PRODUCT_VERSION=&quot;7&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CentOS Linux release 7.5.1804 (Core) </span><br><span class="line"></span><br><span class="line">CentOS Linux release 7.5.1804 (Core)</span><br></pre></td></tr></table></figure>
+
+<p>这些信息会在选cuda的时候用到。</p>
+<h3 id="3-确定系统安装了GCC"><a href="#3-确定系统安装了GCC" class="headerlink" title="3.确定系统安装了GCC"></a>3.确定系统安装了GCC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br></pre></td></tr></table></figure>
+
+<p>查看GCC版本</p>
+<p>如果报错你需要安装GCC，我的版本信息是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">使用内建 specs。</span><br><span class="line"></span><br><span class="line">COLLECT_GCC=gcc</span><br><span class="line"></span><br><span class="line">COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper</span><br><span class="line"></span><br><span class="line">目标：x86_64-redhat-linux</span><br><span class="line"></span><br><span class="line">配置为：../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux</span><br><span class="line"></span><br><span class="line">线程模型：posix</span><br><span class="line"></span><br><span class="line">gcc 版本 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-确定你的系统有正确的内核头文件Kernel-Headers和development-packages"><a href="#4-确定你的系统有正确的内核头文件Kernel-Headers和development-packages" class="headerlink" title="4.确定你的系统有正确的内核头文件Kernel Headers和development packages"></a>4.确定你的系统有正确的内核头文件Kernel Headers和development packages</h3><p>内核头文件经常在需要安装驱动，重新编译内核时用到，如果你的内核版本是3.17.4-301，那么3.17.4-301的kernel headers and development packages必须安装。</p>
+<p>内核版本查看使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
+
+<p>我的是3.10.0-862.14.4.el7.x86_64，必须安装相应版本的kernel headers and development packages。CentOS系统使用如下命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install kernel-devel-$(uname -r) kernel-headers-$(uname -r)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-选择安装方式"><a href="#5-选择安装方式" class="headerlink" title="5.选择安装方式"></a>5.选择安装方式</h3><p>有两种安装方式：distribution-specific packages，distribution-independent package</p>
+<p>选好跟linux系统匹配的cuda后，我选择runfile(local)方式安装</p>
+<p>下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-Disable-the-Nouveau-drivers"><a href="#二-Disable-the-Nouveau-drivers" class="headerlink" title="二.Disable the Nouveau drivers."></a>二.Disable the Nouveau drivers.</h1><p>在装显示驱动Display Driver之前，必须先关闭Nouveau drivers。</p>
+<p>Nouveau是由第三方为NVIDIA显卡开发的一个开源3D驱动，也没能得到NVIDIA的认可与支持。虽然Nouveau Gallium3D在游戏速度上还远远无法和NVIDIA官方私有驱动相提并论，不过确让Linux更容易的应对各种复杂的NVIDIA显卡环境，让用户安装完系统即可进入桌面并且有不错的显示效果，所以，很多Linux发行版默认集成了Nouveau驱动，在遇到NVIDIA显卡时默认安装。企业版的Linux更是如此，几乎所有支持图形界面的企业Linux发行版都将Nouveau收入其中。</p>
+<p>如果中断输入如下命令，有输出，则说明Nouveau drivers已经被加载：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure>
+
+<p>我的没有输出。</p>
+<h1 id="三-安装"><a href="#三-安装" class="headerlink" title="三.安装"></a>三.安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_8.0.61_375.26_linux.run</span><br></pre></td></tr></table></figure>
+
+<p>一路y。</p>
+<p>出现如下问题</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7iwa05gdsj30q80baq4f.jpg" alt></p>
+<p>Missing recommended library: libXmu.so</p>
+<p>有依赖没有提前安装，需要卸载cuda，安装完依赖，再安装cuda。</p>
+<h1 id="四-卸载"><a href="#四-卸载" class="headerlink" title="四.卸载"></a>四.卸载</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/cuda-8.0/bin/uninstall_cuda_8.0.pl</span><br></pre></td></tr></table></figure>
+
+<p>有说NVIDIA Driver也要卸载，但是我没卸载，我觉得不用卸载，要卸载的话，用下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/bin/nvidia-uninstall</span><br></pre></td></tr></table></figure>
+
+<h1 id="五-安装依赖"><a href="#五-安装依赖" class="headerlink" title="五.安装依赖"></a>五.安装依赖</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libX*</span><br></pre></td></tr></table></figure>
+
+<p>由于在服务器上安装的一般是centos的server版的，许多软件包和依赖并没有装上，所以还安装了一些其他的依赖包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install gdb</span><br><span class="line"></span><br><span class="line">yum install make</span><br><span class="line"></span><br><span class="line">yum install glibc-static libstdc++-dtatic -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="六-再安装"><a href="#六-再安装" class="headerlink" title="六.再安装"></a>六.再安装</h1><p>在执行安装命令，一路y，最后结果如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7iw5pk7s8j30nu0bgjst.jpg" alt></p>
+<p>这次没有Missing recommended library: libXmu.so。</p>
+<h1 id="七-为cuda添加路径"><a href="#七-为cuda添加路径" class="headerlink" title="七.为cuda添加路径"></a>七.为cuda添加路径</h1><p>上面的安装完成信息可以看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Please make sure that</span><br><span class="line"></span><br><span class="line"> \-   PATH includes /usr/local/cuda-8.0/bin</span><br><span class="line"></span><br><span class="line"> \-   LD_LIBRARY_PATH includes /usr/local/cuda-8.0/lib64, or, add /usr/local/cuda-8.0/lib64 to /etc/ld.so.conf and run ldconfig as root</span><br></pre></td></tr></table></figure>
+
+<p>所以需要在.bashrc为cuda添加路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">cd root</span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
+
+<p>添加三行信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># added by ljy</span><br><span class="line">export PATH=$PATH:/usr/local/cuda-8.0/bin</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7iwfowypzj30d9072dgi.jpg" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc（立即生效文件）</span><br></pre></td></tr></table></figure>
+
+<p>查看cuda版本信息，看是否安装好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7iwifm4pyj309c02eglt.jpg" alt></p>
+<h1 id="八-问题"><a href="#八-问题" class="headerlink" title="八.问题"></a>八.问题</h1><p>1.问题1</p>
+<p>按照上面操作安装完之后，nvidia-smi反而不能使用，输入该命令出现如下问题：</p>
+<p>NVIDIA-SMI has failed because it couldn’t communicate with the NVIDIA driver.</p>
+<p>2.问题2</p>
+<p>代码测试gpu可用性也是不可用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">print(tf.__version__)</span><br><span class="line">print(tf.keras.__version__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> tf.test.is_gpu_available(cuda_only=<span class="literal">True</span>):</span><br><span class="line">    device = <span class="string">"/gpu:0"</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    device = <span class="string">"/cpu:0"</span></span><br><span class="line"></span><br><span class="line">print(device)</span><br></pre></td></tr></table></figure>
+
+<p><strong>cuda_only</strong>: limit the search to CUDA GPUs.</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7iwzzvcszj30dn07mwf7.jpg" alt></p>
+<p>3.问题3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74</span><br></pre></td></tr></table></figure>
+
+<p>仍然是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet: error while loading shared libraries: libcudart.so.8.0: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<p>此问题的原因是/etc/profile中的路径没有包含cuda8.0的安装路径及相应的库文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd etc</span><br><span class="line">vim profile</span><br></pre></td></tr></table></figure>
+
+<p>尾部添加这三行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/cuda-8.0/bin</span><br><span class="line"></span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64</span><br><span class="line"></span><br><span class="line">export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda-8.0/lib64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
+
+<p>再运行，现在报的错误是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CUDA Error: unknown error</span><br><span class="line"></span><br><span class="line">darknet: ./src/cuda.c:36: check_error: Assertion `0&apos; failed.</span><br><span class="line"></span><br><span class="line">已放弃</span><br></pre></td></tr></table></figure>
+
+<p>还是cuda装的有问题。</p>
+<p>解决方法看下一篇，cuda安装出错解决方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/01/centos安装cuda/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-GPU-CUDA-cuDNN功能介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/30/GPU-CUDA-cuDNN功能介绍/">GPU,CUDA,cuDNN功能介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/30/GPU-CUDA-cuDNN功能介绍/" class="archive-article-date">
+  	<time datetime="2019-09-30T11:14:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/30/GPU-CUDA-cuDNN功能介绍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-常用linux命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/30/常用linux命令/">常用linux命令</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/30/常用linux命令/" class="archive-article-date">
+  	<time datetime="2019-09-30T03:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-chown"><a href="#一-chown" class="headerlink" title="一.chown"></a>一.chown</h2><h2 id="二-chmod"><a href="#二-chmod" class="headerlink" title="二.chmod"></a>二.chmod</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/30/常用linux命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何创建自己的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>如何创建自己的博客 | Hexo</title>
+  <title>GPU,CUDA,cuDNN功能介绍 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.默认环境我是在mac下面装的，首先要有node -v v11.1.0，npm -v 6.4.1，如果没有的话，先安装，版本不一样应该也没关系。 2.root用户下执行下面的命令才能成功，普通用户不行1npm install -g cnpm --registry=https://registry.npm.taobao.org  3.普通用户下执行下面的命令1hexo -v  查看hexo版本，得">
+  <meta name="description" content="Programming is Thinking,not Typing.">
 <meta name="keywords" content="Programming is Thinking,not Typing.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何创建自己的博客">
-<meta property="og:url" content="http://yoursite.com/2019/09/28/如何创建自己的博客/index.html">
+<meta property="og:title" content="GPU,CUDA,cuDNN功能介绍">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/GPU-CUDA-cuDNN功能介绍/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.默认环境我是在mac下面装的，首先要有node -v v11.1.0，npm -v 6.4.1，如果没有的话，先安装，版本不一样应该也没关系。 2.root用户下执行下面的命令才能成功，普通用户不行1npm install -g cnpm --registry=https://registry.npm.taobao.org  3.普通用户下执行下面的命令1hexo -v  查看hexo版本，得">
+<meta property="og:description" content="Programming is Thinking,not Typing.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-28T16:12:15.895Z">
+<meta property="og:updated_time" content="2019-09-30T11:14:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何创建自己的博客">
-<meta name="twitter:description" content="1.默认环境我是在mac下面装的，首先要有node -v v11.1.0，npm -v 6.4.1，如果没有的话，先安装，版本不一样应该也没关系。 2.root用户下执行下面的命令才能成功，普通用户不行1npm install -g cnpm --registry=https://registry.npm.taobao.org  3.普通用户下执行下面的命令1hexo -v  查看hexo版本，得">
+<meta name="twitter:title" content="GPU,CUDA,cuDNN功能介绍">
+<meta name="twitter:description" content="Programming is Thinking,not Typing.">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -155,96 +155,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-如何创建自己的博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-GPU-CUDA-cuDNN功能介绍" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何创建自己的博客
+      GPU,CUDA,cuDNN功能介绍
     </h1>
   
 
         
-        <a href="/2019/09/28/如何创建自己的博客/" class="archive-article-date">
-  	<time datetime="2019-09-28T14:47:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
+        <a href="/2019/09/30/GPU-CUDA-cuDNN功能介绍/" class="archive-article-date">
+  	<time datetime="2019-09-30T11:14:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-默认环境"><a href="#1-默认环境" class="headerlink" title="1.默认环境"></a>1.默认环境</h2><p>我是在mac下面装的，首先要有node -v v11.1.0，npm -v 6.4.1，如果没有的话，先安装，版本不一样应该也没关系。</p>
-<h2 id="2-root用户下执行下面的命令才能成功，普通用户不行"><a href="#2-root用户下执行下面的命令才能成功，普通用户不行" class="headerlink" title="2.root用户下执行下面的命令才能成功，普通用户不行"></a>2.root用户下执行下面的命令才能成功，普通用户不行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-普通用户下执行下面的命令"><a href="#3-普通用户下执行下面的命令" class="headerlink" title="3.普通用户下执行下面的命令"></a>3.普通用户下执行下面的命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-<p>查看hexo版本，得到如下输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 2.0.0</span><br><span class="line">os: Darwin 18.2.0 darwin x64</span><br><span class="line">http_parser: 2.8.0</span><br><span class="line">node: 11.1.0</span><br><span class="line">v8: 7.0.276.32-node.7</span><br><span class="line">uv: 1.23.2</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">ares: 1.14.0</span><br><span class="line">modules: 67</span><br><span class="line">nghttp2: 1.34.0</span><br><span class="line">napi: 3</span><br><span class="line">openssl: 1.1.0i</span><br><span class="line">icu: 63.1</span><br><span class="line">unicode: 11.0</span><br><span class="line">cldr: 34.0</span><br><span class="line">tz: 2018e</span><br></pre></td></tr></table></figure>
-
-<p>然后新建一个空的文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir blog</span><br><span class="line">cd blog</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-然后可能会出现下面的错误，要在root下面执行下面命令"><a href="#3-然后可能会出现下面的错误，要在root下面执行下面命令" class="headerlink" title="3.然后可能会出现下面的错误，要在root下面执行下面命令"></a>3.然后可能会出现下面的错误，要在root下面执行下面命令</h2><h4 id="1）WARN-Failed-to-install-dependencies-Please-run-‘npm-install’-manually"><a href="#1）WARN-Failed-to-install-dependencies-Please-run-‘npm-install’-manually" class="headerlink" title="1）WARN  Failed to install dependencies. Please run ‘npm install’ manually!"></a>1）WARN  Failed to install dependencies. Please run ‘npm install’ manually!</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<h4 id="2）run-npm-audit-fix-to-fix-them-or-npm-audit-for-details"><a href="#2）run-npm-audit-fix-to-fix-them-or-npm-audit-for-details" class="headerlink" title="2）run npm audit fix to fix them, or npm audit for details"></a>2）run <code>npm audit fix</code> to fix them, or <code>npm audit</code> for details</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure>
-
-<h4 id="3）use-npm-audit-fix-force-to-install-breaking-changes"><a href="#3）use-npm-audit-fix-force-to-install-breaking-changes" class="headerlink" title="3）use npm audit fix --force to install breaking changes;"></a>3）use <code>npm audit fix --force</code> to install breaking changes;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix --force</span><br></pre></td></tr></table></figure>
-
-<h4 id="4）-installed-due-to-force-option"><a href="#4）-installed-due-to-force-option" class="headerlink" title="4）(installed due to --force option)"></a>4）(installed due to <code>--force</code> option)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit</span><br></pre></td></tr></table></figure>
-
-<p>然后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">found 0 vulnerabilities</span><br><span class="line">in 6893 scanned packages</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-没问题之后，普通用户下可以输入下面的命令"><a href="#4-没问题之后，普通用户下可以输入下面的命令" class="headerlink" title="4.没问题之后，普通用户下可以输入下面的命令"></a>4.没问题之后，普通用户下可以输入下面的命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>s是server的意思，就是开启hexo服务，再在浏览器输入</p>
-<p><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
-<p>Ctrl+c关闭，然后输入下面的命令新建一个博客文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;first blog&quot;</span><br></pre></td></tr></table></figure>
-
-<p>n是new的意思，新建；你会得到如下信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: /Users/liujinyang/blog/source/_posts/first-blog.md</span><br></pre></td></tr></table></figure>
-
-<p>再输入下面的命令，上传新建的博客文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>g是生成的意思，d是部署的意思，你会看到first blog的一篇空白博客</p>
-<h2 id="5-把博客部署到github上去"><a href="#5-把博客部署到github上去" class="headerlink" title="5.把博客部署到github上去"></a>5.把博客部署到github上去</h2><p>root用户下进入blog文件夹，输入下面的命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<p>然后编辑一个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
-
-<p>找到Deployment的位置，更改type，并添加两行，跟type对齐</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: http://github.com/Janezzliu/Janezzliu.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-
-<p>Janezzliu是我的github用户名</p>
-<p>再输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>此命令行执行过程中需要你输入自己的github用户名和密码。执行成功之后可以登录<a href="https://janezzliu.github.io/" target="_blank" rel="noopener">https://janezzliu.github.io/</a></p>
-<h2 id="6-更换主题"><a href="#6-更换主题" class="headerlink" title="6.更换主题"></a>6.更换主题</h2><p>普通用户下执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-
-<p>会下载一份主题到blog的themes文件夹下，把该主题的文件夹命名为yilia。</p>
-<p>再来修改_config.yml文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
-
-<p>找到theme</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: landscape</span><br></pre></td></tr></table></figure>
-
-<p>更改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
-
-<p>保存退出</p>
-<p>终端输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>再打开浏览器</p>
-<p><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
-
+        
       
 
       
@@ -323,7 +254,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/28/如何创建自己的博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/30/GPU-CUDA-cuDNN功能介绍/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,15 +268,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/30/常用linux命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/01/centos安装cuda/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          常用linux命令
+          centos安装cuda
         
       </div>
     </a>
   
+  
+    <a href="/2019/09/30/常用linux命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常用linux命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
