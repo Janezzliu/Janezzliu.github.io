@@ -462,7 +462,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-chown"><a href="#一-chown" class="headerlink" title="一.chown"></a>一.chown</h2><h2 id="二-chmod"><a href="#二-chmod" class="headerlink" title="二.chmod"></a>二.chmod</h2>
+        <h2 id="一-chown"><a href="#一-chown" class="headerlink" title="一.chown"></a>一.chown</h2><p>用于修改用户权限，修改文件和文件夹的用户和用户组属性，经常用如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R user[:group] file</span><br></pre></td></tr></table></figure>
+
+<p>例如，我发现在普通用户下面执行<code>hexo d</code>，会出现这个错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: Authentication failed for &apos;https://github.com/Janezzliu/Janezzliu.github.io.git/&apos;</span><br></pre></td></tr></table></figure>
+
+<p>权限不够，于是ls -l查看blog文件夹下用户权限</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7jvgfuryfj30e9054dgg.jpg" alt></p>
+<p>发现，.deploy_git，db.json两个文件只有root用户能使用，而hero d的d就是deployment，肯定跟.deploy_git有关，于是把这两个文件所属用户改成liujinyang。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7jvitofpvj30e105x0tf.jpg" alt></p>
+<p>再回到普通用户，执行hexo d，发现错误消失。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g7jvk6t3d7j30py0i9jvq.jpg" alt></p>
+<h2 id="二-chmod"><a href="#二-chmod" class="headerlink" title="二.chmod"></a>二.chmod</h2><p>用于修改文件和文件夹的读写可执行属性。文件调用权限分为三级：文件拥有者u，群组g，其他o；a可以用来指代所有人；经常用的语法是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] [ugoa][+-=][rwx] file</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chmod 765 a.txt(分别对应ugo)</span><br><span class="line">chmod -R 765 * (将目前目录下的所有文件与子目录皆设为765)</span><br><span class="line">chmod u+r a.txt</span><br><span class="line">chmod g+r a.txt</span><br><span class="line">chmod o+r a.txt</span><br><span class="line">chmod ugo+r a.txt</span><br><span class="line">chmod ug+w,ug-w a.txt b.txt</span><br></pre></td></tr></table></figure>
+
+
       
 
       
