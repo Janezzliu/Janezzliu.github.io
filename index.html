@@ -156,6 +156,138 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-语法之函数return" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/05/C-语法之函数return/">C++语法之函数return</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/05/C-语法之函数return/" class="archive-article-date">
+  	<time datetime="2019-10-05T14:29:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/05/C-语法之函数return/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-TCP-IP协议基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/05/TCP-IP协议基础/">TCP/IP协议基础</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/05/TCP-IP协议基础/" class="archive-article-date">
+  	<time datetime="2019-10-05T08:11:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-以太网帧格式"><a href="#一-以太网帧格式" class="headerlink" title="一.以太网帧格式"></a>一.以太网帧格式</h1><p>以太网帧格式如下：</p>
+<p>目的地址|源地址|类型|数据|CRC</p>
+<p>目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。</p>
+<p>不同网络类型的MTU不同，以太网帧的MTU是1500字节。</p>
+<h1 id="二-ARP数据报格式"><a href="#二-ARP数据报格式" class="headerlink" title="二.ARP数据报格式"></a>二.ARP数据报格式</h1><p>ARP报文用来通过目的IP地址获取目的MAC地址，过程如下：</p>
+<p>源主机发送ARP请求，广播到本地网段，目的MAC地址是FF:FF:FF:FF:FF:FF，各主机查看自身IP是否与报文中的IP相同，如果相同，则该主机发送ARP响应报文。</p>
+<p>每台主机都维护一个ARP缓存表，可用过arp -a查看，一段时间后，若没有使用该表项，则该表项自动失效。</p>
+<h4 id="如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？"><a href="#如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？" class="headerlink" title="如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？"></a>如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？</h4><p>需要通过路由器转发。该主机找到同网段的路由器，剩下的工作由路由器完成。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/05/TCP-IP协议基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-cuda安装出错解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>TCP/IP协议基础 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Programming is Thinking,not Typing.">
+  <meta name="description" content="一.以太网帧格式以太网帧格式如下： 目的地址|源地址|类型|数据|CRC 目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。 不同网络类型的MTU不同，以太网帧的MTU是1500字节。 二.ARP数据报格式ARP报文用">
 <meta name="keywords" content="Programming is Thinking,not Typing.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP&#x2F;IP协议基础">
+<meta property="og:url" content="http://yoursite.com/2019/10/05/TCP-IP协议基础/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Programming is Thinking,not Typing.">
+<meta property="og:description" content="一.以太网帧格式以太网帧格式如下： 目的地址|源地址|类型|数据|CRC 目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。 不同网络类型的MTU不同，以太网帧的MTU是1500字节。 二.ARP数据报格式ARP报文用">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-05T14:29:44.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="Programming is Thinking,not Typing.">
+<meta name="twitter:title" content="TCP&#x2F;IP协议基础">
+<meta name="twitter:description" content="一.以太网帧格式以太网帧格式如下： 目的地址|源地址|类型|数据|CRC 目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。 不同网络类型的MTU不同，以太网帧的MTU是1500字节。 二.ARP数据报格式ARP报文用">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,211 +155,172 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-TCP-IP协议基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/05/C-语法之函数return/" class="archive-article-date">
-  	<time datetime="2019-10-05T14:29:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/05/C-语法之函数return/">C++语法之函数return</a>
+    <h1 class="article-title" itemprop="name">
+      TCP/IP协议基础
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/05/TCP-IP协议基础/" class="archive-article-date">
+        
+        <a href="/2019/10/05/TCP-IP协议基础/" class="archive-article-date">
   	<time datetime="2019-10-05T08:11:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/05/TCP-IP协议基础/">TCP/IP协议基础</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-以太网帧格式"><a href="#一-以太网帧格式" class="headerlink" title="一.以太网帧格式"></a>一.以太网帧格式</h1><p>以太网帧格式如下：</p>
+<p>目的地址|源地址|类型|数据|CRC</p>
+<p>目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。</p>
+<p>不同网络类型的MTU不同，以太网帧的MTU是1500字节。</p>
+<h1 id="二-ARP数据报格式"><a href="#二-ARP数据报格式" class="headerlink" title="二.ARP数据报格式"></a>二.ARP数据报格式</h1><p>ARP报文用来通过目的IP地址获取目的MAC地址，过程如下：</p>
+<p>源主机发送ARP请求，广播到本地网段，目的MAC地址是FF:FF:FF:FF:FF:FF，各主机查看自身IP是否与报文中的IP相同，如果相同，则该主机发送ARP响应报文。</p>
+<p>每台主机都维护一个ARP缓存表，可用过arp -a查看，一段时间后，若没有使用该表项，则该表项自动失效。</p>
+<h4 id="如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？"><a href="#如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？" class="headerlink" title="如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？"></a>如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？</h4><p>需要通过路由器转发。该主机找到同网段的路由器，剩下的工作由路由器完成。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/05/TCP-IP协议基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/cuda安装出错解决方法/" class="archive-article-date">
-  	<time datetime="2019-10-01T11:26:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/10/05/C-语法之函数return/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C++语法之函数return
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/01/cuda安装出错解决方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cuda安装出错解决方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/cuda安装出错解决方法/">cuda安装出错解决方法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/01/centos安装cuda/" class="archive-article-date">
-  	<time datetime="2019-10-01T10:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/01/centos安装cuda/">centos安装cuda</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/30/GPU-CUDA-cuDNN功能介绍/" class="archive-article-date">
-  	<time datetime="2019-09-30T11:14:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/GPU-CUDA-cuDNN功能介绍/">GPU,CUDA,cuDNN功能介绍</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/30/常用linux命令/" class="archive-article-date">
-  	<time datetime="2019-09-30T03:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/常用linux命令/">常用linux命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/28/如何创建自己的博客/" class="archive-article-date">
-  	<time datetime="2019-09-28T14:47:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/28/如何创建自己的博客/">如何创建自己的博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -381,8 +343,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
