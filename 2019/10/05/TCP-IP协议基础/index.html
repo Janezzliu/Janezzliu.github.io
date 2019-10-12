@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一.以太网帧格式以太网帧格式如下： 目的地址|源地址|类型|数据|CRC 目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。 不同网络类型的MTU不同，以太网帧的MTU是1500字节。 二.ARP数据报格式ARP报文用">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-05T14:29:44.433Z">
+<meta property="og:updated_time" content="2019-10-05T16:09:44.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP&#x2F;IP协议基础">
 <meta name="twitter:description" content="一.以太网帧格式以太网帧格式如下： 目的地址|源地址|类型|数据|CRC 目的地址和源地址都是mac地址，是6字节；类型是指协议类型，0800是IP协议，0806是ARP协议，8035是RARP协议，占2字节；数据占48～1500字节，少于48字节需要填充，大于1500字节需要分片；CRC校验和占4字节。 不同网络类型的MTU不同，以太网帧的MTU是1500字节。 二.ARP数据报格式ARP报文用">
@@ -183,7 +183,7 @@
 <p>源主机发送ARP请求，广播到本地网段，目的MAC地址是FF:FF:FF:FF:FF:FF，各主机查看自身IP是否与报文中的IP相同，如果相同，则该主机发送ARP响应报文。</p>
 <p>每台主机都维护一个ARP缓存表，可用过arp -a查看，一段时间后，若没有使用该表项，则该表项自动失效。</p>
 <h4 id="如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？"><a href="#如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？" class="headerlink" title="如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？"></a>如果源主机和目的主机不在同一网段，ARP请求的广播帧无法穿过路由器，源主机如何与目的主机通信？</h4><p>需要通过路由器转发。该主机找到同网段的路由器，剩下的工作由路由器完成。</p>
-
+<h1 id="三-DNS工作原理"><a href="#三-DNS工作原理" class="headerlink" title="三.DNS工作原理"></a>三.DNS工作原理</h1>
       
 
       
@@ -276,11 +276,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/05/C-语法之函数return/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/05/C++一些语法点/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          C++语法之函数return
+          C++一些语法点
         
       </div>
     </a>
